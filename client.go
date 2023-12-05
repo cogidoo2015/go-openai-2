@@ -44,6 +44,21 @@ func NewClient(authToken string) *Client {
 	return NewClientWithConfig(config)
 }
 
+// NewClient creates new OpenAI API client.
+func NewClientWithProxyURl(ProxyURL, authToken string) *Client {
+	config := ClientConfig{
+		authToken: authToken,
+		BaseURL:   fmt.Sprintf("%s/v1", ProxyURL),
+		APIType:   APITypeOpenAI,
+		OrgID:     "",
+
+		HTTPClient: &http.Client{},
+
+		EmptyMessagesLimit: defaultEmptyMessagesLimit,
+	}
+	return NewClientWithConfig(config)
+}
+
 // NewClientWithConfig creates new OpenAI API client for specified config.
 func NewClientWithConfig(config ClientConfig) *Client {
 	return &Client{
