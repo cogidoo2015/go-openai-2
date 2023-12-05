@@ -17,7 +17,11 @@ const (
 	CreateImageSize1792x1024 = "1792x1024"
 	CreateImageSize1024x1792 = "1024x1792"
 )
+const (
+	DallE3   = "dall-e-3"
+	DallE2   = "dall-e-2"
 
+)
 const (
 	CreateImageResponseFormatURL     = "url"
 	CreateImageResponseFormatB64JSON = "b64_json"
